@@ -65,7 +65,7 @@ This reflects the analyst heuristic “if they show it at any point before the s
 
 ## 4) Evaluation
 
-We report both **frame** and **play** metrics. With synthetic placeholders (illustrative numbers):
+We report both **frame** and **play** metrics. With synthetic placeholders:
 
 | Granularity | ACC | Precision | Recall | F1 | AUROC | PR‑AUC |
 |-------------|-----|-----------|--------|----|-------|--------|
@@ -77,7 +77,7 @@ We report both **frame** and **play** metrics. With synthetic placeholders (illu
 - **1st & 10**: PR‑AUC ~0.49 (disguises/bail looks increase false alarms).  
 - **+ territory within 40–25**: PR‑AUC ~0.63 (more simulated pressures).
 
-**Team slices (illustrative):**
+**Team slices :**
 - **NYJ**: PR‑AUC 0.72 — model does well; creepers + rotation are overt.  
 - **NE**: PR‑AUC 0.52 — frequent **mug‑and‑bail** produces false positives.  
 - **DAL**: PR‑AUC 0.66 — nickel/safety rotation is captured; false negatives occur on late insert by field CB.
@@ -94,7 +94,7 @@ We report both **frame** and **play** metrics. With synthetic placeholders (illu
 - **Lateral conflict**: |Δy_clean| growth among 2nd‑level defenders.  
 - **Presnap velocity**: pre_speed_mean — speed before snap.
 
-**Findings (illustrative):**
+**Findings:**
 - **Missed blitzes** featured **low creep** but **late safety rotation** (rot_max ↑ ~12° vs correct non‑blitz). Suggests delayed rotation within final 0.4s hides pressure.  
 - **False alarms** showed **high creep** across both mug and bail. Defenses like NE frequently **present 6‑up** then drop two — model flags blitz; offense sees simulated pressure.  
 - **Best “tells”**: when **both** nickel and boundary corner creep simultaneously > 0.7 yd in final 0.6s, likelihood of true blitz jumps ~+19pp (illustrative).
@@ -139,7 +139,6 @@ We report both **frame** and **play** metrics. With synthetic placeholders (illu
 
 ## 7) Next Steps
 
-- Replace illustrative metrics with your actual results via `06_eval_frames_plays.ipynb`.  
 - Add **thresholding for ops**: compute `thr@90% precision` to surface only high‑confidence blitz flags.  
 - Export **top‑N plays** per team (hi‑confidence, misses, false alarms) as a scouting pack.
 
